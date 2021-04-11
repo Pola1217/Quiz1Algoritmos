@@ -34,6 +34,26 @@ public abstract class Shapes {
 		Y += direcY;
 		
 	}
+	
+	public void  limits () {
+		
+		if(X-size/2<0) {
+			direcX = 1;
+		}
+		
+		if(Y-size/2<0) {
+			direcY = 1;
+		}
+		
+		if(X+size/2>900) {
+			direcX = -1 ;
+		}
+		
+		if(Y+size/2>600) {
+			direcY = -1;
+		}
+		
+	}
 
 	public int getX() {
 		return X;

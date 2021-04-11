@@ -11,9 +11,9 @@ public class Circle extends Shapes {
 		// TODO Auto-generated constructor stub
 		
 		//random for the figures colors
-		R = (int)(Math.random()*11);
-		G = (int)(Math.random()*11);
-		B = (int)(Math.random()*11);
+		R = (int) (Math.random()*255);
+		G = (int) (Math.random()*255);
+		B = (int) (Math.random()*255);
 		
 	}
 

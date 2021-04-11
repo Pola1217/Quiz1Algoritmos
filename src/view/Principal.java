@@ -10,6 +10,9 @@ public class Principal extends PApplet {
 		PApplet.main("Principal");
 	}
 	
+	Controller controller;
+	
+	
 	@Override
 	public void settings() {
 		
@@ -17,13 +20,15 @@ public class Principal extends PApplet {
 		
 	}
 
-	
-	
+
 	
 	@Override
 	public void setup() {
 		
-		
+		textAlign(CENTER,CENTER);
+		rectMode(CENTER);
+		ellipseMode(CENTER);
+		controller = new Controller(this);
 		
 	}
 	

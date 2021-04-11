@@ -11,9 +11,18 @@ public class Triangle extends Shapes {
 		// TODO Auto-generated constructor stub
 		
 		//random for the figures colors
-		R = (int)(Math.random()*20);
-		G = (int)(Math.random()*11);
-		B = (int)(Math.random()*11);
+		R = (int) (Math.random()*255);
+		G = (int) (Math.random()*255);
+		B = (int) (Math.random()*255);
+		
+	}
+	
+	public void drawtriangle (PApplet app) {
+		
+		app.rect(X, Y, size, size);
+		app.fill(R,G,B);
+		app.textSize(size/2);
+		app.text(numero + "", X, Y);
 		
 	}
 	
