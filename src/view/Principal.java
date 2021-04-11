@@ -7,11 +7,10 @@ import controller.Controller;
 public class Principal extends PApplet {
 
 	public static void main(String[] args) {
-		PApplet.main("Principal");
+		PApplet.main("view.Principal");
 	}
 	
 	Controller controller;
-	
 	
 	@Override
 	public void settings() {
@@ -19,30 +18,37 @@ public class Principal extends PApplet {
 		size(600, 600);
 		
 	}
-
-
 	
 	@Override
 	public void setup() {
 		
+		controller = new Controller(this);
+		
 		textAlign(CENTER,CENTER);
+
 		rectMode(CENTER);
 		ellipseMode(CENTER);
-		controller = new Controller(this);
 		
 	}
 	
 	@Override
 	public void draw() {
 		
-		background(255);
+		background(0);
+		controller.draw(this);
 		
 	}
 	
 	@Override
 	public void mousePressed() {
 		
+		controller.move(mouseX, mouseY);
 		
+		if(mouseButton == RIGHT) {
+			
+		controller.newshape(mouseX, mouseY);
+		
+		}
 		
 	}
 	

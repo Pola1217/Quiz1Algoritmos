@@ -4,26 +4,23 @@ import processing.core.PApplet;
 
 public class Square extends Shapes {
 	
-	private int R, G, B;
 	
-	public Square(int X, int Y, int size, int direct, int numero, PApplet app) {
+	public Square (int size,int X, int Y, int direct, int value) {
 		
-		super(X, Y, size, direct, numero, app);
-		
-		// TODO Auto-generated constructor stub
-		
-		R = (int) (Math.random()*255);
-		G = (int) (Math.random()*255);
-		B = (int) (Math.random()*255);
+		super(size, X, Y, direct, value);
 		
 	}
-
-	public void drawsquare (PApplet app) {
 		
+	public void draw (PApplet app) {
+		
+		app.fill(178,102,255);
 		app.rect(X, Y, size, size);
-		app.fill(R,G,B);
+		
+		app.fill(255);
 		app.textSize(size/2);
-		app.text(numero + "", X, Y);
+		app.text(value + "", X, Y);
+		
+		
 		
 	}
 	

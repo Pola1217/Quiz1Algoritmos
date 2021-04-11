@@ -3,23 +3,22 @@ package model;
 import processing.core.PApplet;
 
 public class Circle extends Shapes {
-
-	private int R, G, B;
 	
-	public Circle(int X, int Y, int size, int direct, int numero, PApplet app) {
-		super(X, Y, size, direct, numero, app);
-		// TODO Auto-generated constructor stub
+	public Circle(int size, int X, int Y, int direct, int value) {
 		
-		//random for the figures colors
-		R = (int) (Math.random()*255);
-		G = (int) (Math.random()*255);
-		B = (int) (Math.random()*255);
+		super(size, X, Y, direct, value);
 		
 	}
 
-	public void drawcircle (PApplet app) {
+	public void draw (PApplet app) {
 		
+		app.fill(255,153,255);
+		app.ellipse(X, Y, size, size);
 		
+		app.fill(255);
+		app.textSize(size/2);
+		app.text(value + "", X, Y);
 		
 	}
+	
 }

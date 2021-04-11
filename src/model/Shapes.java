@@ -1,8 +1,5 @@
 package model;
-
-import java.util.ArrayList;
-
-import processing.core.PApplet;
+//import processing.core.PApplet;
 
 public abstract class Shapes {
 	
@@ -10,11 +7,9 @@ public abstract class Shapes {
 	
 	int size;
 	
-	int direcX, direcY, numero;
+	int direcX, direcY, value;
 	
-	
-	
-	public Shapes (int X, int Y, int size, int direct, int numero, PApplet app) {
+	public Shapes (int size, int X, int Y, int direct, int value) {
 		
 		this.X = X;
 		this.Y = Y;
@@ -24,7 +19,7 @@ public abstract class Shapes {
 		this.direcX = direct;
 		this.direcY = direct;
 		
-		this.numero = numero;
+		this.value = value;
 		
 	}
 	
@@ -41,12 +36,12 @@ public abstract class Shapes {
 			direcX = 1;
 		}
 		
-		if(Y-size/2<0) {
-			direcY = 1;
+		if(X+size/2>600) {
+			direcX = -1;
 		}
 		
-		if(X+size/2>900) {
-			direcX = -1 ;
+		if(Y-size/2<0) {
+			direcY = 1;
 		}
 		
 		if(Y+size/2>600) {
@@ -96,11 +91,11 @@ public abstract class Shapes {
 	}
 
 	public int getNumero() {
-		return numero;
+		return value;
 	}
 
 	public void setNumero(int numero) {
-		this.numero = numero;
+		this.value = numero;
 	}
 	
 	

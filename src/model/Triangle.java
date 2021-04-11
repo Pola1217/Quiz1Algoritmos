@@ -4,25 +4,23 @@ import processing.core.PApplet;
 
 public class Triangle extends Shapes {
 
-	private int R, G, B;
 	
-	public Triangle(int X, int Y, int size, int direct, int numero, PApplet app) {
-		super(X, Y, size, direct, numero, app);
-		// TODO Auto-generated constructor stub
+	public Triangle( int size, int X, int Y, int direct, int value) {
 		
-		//random for the figures colors
-		R = (int) (Math.random()*255);
-		G = (int) (Math.random()*255);
-		B = (int) (Math.random()*255);
+		super(size, X, Y, direct, value);
 		
 	}
 	
-	public void drawtriangle (PApplet app) {
+	public void draw (PApplet app) {
 		
-		app.rect(X, Y, size, size);
-		app.fill(R,G,B);
-		app.textSize(size/2);
-		app.text(numero + "", X, Y);
+		app.fill(255,204,229);
+		
+		app.triangle(X, Y-size, X-size, Y+size, X+size, Y+size);
+		
+		app.fill(255);
+		app.textSize(size-30);
+		app.text(value + " ", X, Y);
+		
 		
 	}
 	
