@@ -16,7 +16,7 @@ public class Controller {
 	
 	public Controller(PApplet app) {
 		
-		logic = new Logic();
+		logic = new Logic(app);
 			
 		typeS = true;
 		
@@ -30,29 +30,6 @@ public class Controller {
 		logic.combine(app);
 		logic.draw(app);
 		
-	}
-	
-	public void newshape (int mouseX, int mouseY) {
-			
-			if (typeS==true) {
-				
-				Square actual = new Square ((int)(20+(Math.random()*100)), mouseX, mouseY, 1, (int)(Math.random()*10));
-				
-				logic.getSquare().add(actual);
-				
-				typeS = false;
-				
-			}
-			
-		else {
-			
-			Circle actual = new Circle ((int)(20 +(Math.random()*100)), mouseX, mouseY, 1, (int)(Math.random()*10));
-			
-			logic.getCircle().add(actual);
-			
-			typeS = true;
-			
-			}	
 	}
 	
 	public void move (int mouseX, int mouseY) {
@@ -110,6 +87,31 @@ public class Controller {
 			}
 		
 	}
+	
+	public void newshape (int mouseX, int mouseY) {
+			
+			if (typeS==true) {
+				
+				Square actual = new Square ((int)(20 + (Math.random()*100)), mouseX, mouseY, 5, (int)(Math.random()*10));
+				
+				logic.getSquare().add(actual);
+				
+				typeS = false;
+				
+			}
+			
+		else {
+			
+			Circle actual = new Circle ((int)(20 + (Math.random()*100)), mouseX, mouseY, 5, (int)(Math.random()*10));
+			
+			logic.getCircle().add(actual);
+			
+			typeS = true;
+			
+			}	
+	}
+	
+	
 	
 	
 }

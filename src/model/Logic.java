@@ -8,7 +8,7 @@ import java.util.ArrayList;
 //import model.Triangle;
 
 
-public class Logic {
+public class Logic  {
 	
 	//text 
 	private String[] text;
@@ -24,7 +24,7 @@ public class Logic {
 	
 	
 	
-	public Logic () {
+	public Logic (PApplet app) {
 		
 		//creates word array
 		words = new ArrayList<>();
@@ -84,9 +84,9 @@ public class Logic {
 				int Y = Integer.parseInt(words.get(i+3));
 				
 				int direct = Integer.parseInt(words.get(i+4));
-				int numero = Integer.parseInt(words.get(i+5));
+				int value = Integer.parseInt(words.get(i+5));
 				
-				Circle newCircle = new Circle (size, X, Y, direct, numero);
+				Circle newCircle = new Circle (size, X, Y, direct, value);
 				
 				circle.add(newCircle);
 				
@@ -231,10 +231,8 @@ public class Logic {
 						combine = false;
 						
 					}
-				}
-					
-			}
-					
+				}	
+			}		
 		}
 					
 		//fusion square-circle

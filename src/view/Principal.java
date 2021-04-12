@@ -24,7 +24,7 @@ public class Principal extends PApplet {
 		
 		controller = new Controller(this);
 		
-		textAlign(CENTER,CENTER);
+		textAlign(CENTER);
 
 		rectMode(CENTER);
 		ellipseMode(CENTER);

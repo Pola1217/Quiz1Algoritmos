@@ -15,10 +15,10 @@ public class Triangle extends Shapes {
 		
 		app.fill(255,204,229);
 		
-		app.triangle(X, Y-size, X-size, Y+size, X+size, Y+size);
+		app.triangle(X, Y-size/2, X-size/2, Y, X+size/2, Y+size/2);
 		
 		app.fill(255);
-		app.textSize(size-30);
+		app.textSize(size-25);
 		app.text(value + " ", X, Y);
 		
 		
