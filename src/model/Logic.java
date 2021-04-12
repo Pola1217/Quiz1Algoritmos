@@ -22,7 +22,6 @@ public class Logic {
 	private ArrayList <Circle> circle;
 	private ArrayList <Triangle> triangle;
 	
-	int shapee;
 	
 	
 	public Logic () {
@@ -35,14 +34,13 @@ public class Logic {
 		circle = new ArrayList<>();
 		triangle = new ArrayList<>();
 		
-		shapee = 0;
 		
 		
 	}
 	
 	public void createtext(PApplet app) {
 		
-	text = app.loadStrings("archivoTXT.txt");
+	text = app.loadStrings("texto/texto.txt");
 		
 		for (int i = 0; i < text.length; i++) {
 			
@@ -76,7 +74,6 @@ public class Logic {
 				
 				square.add(newSquare);
 				
-				shapee++;
 			}
 		
 			if (words.get(i).equals("Circulo")) {
@@ -93,7 +90,6 @@ public class Logic {
 				
 				circle.add(newCircle);
 				
-				shapee++;
 				
 			}
 		}
@@ -138,49 +134,49 @@ public class Logic {
 	
 	public void combine (PApplet app) {
 
-		int big = 0;
+		int more = 0;
 		boolean combine = false;
 		
 		//fusion square-square
-				for(int i=0;i < square.size();i++) {
+				for(int i=0;i < square.size(); i++) {
 					
 					for(int j=1;j < square.size();j++) {
 						
-					Square actual1 = square.get(i);
-					Square actual2 = square.get(j);
+					Square actual = square.get(i);
+					Square actual1 = square.get(j);
 					
-					if(actual1.getSize()>actual2.getSize()) { 
+					if(actual.getSize()>actual1.getSize()) { 
 						
-						big = actual1.getSize();
+						more = actual.getSize();
 					
 					}
 					
-					if(actual1.getSize()<actual2.getSize()) {
+					if(actual.getSize()<actual1.getSize()) {
 						
-						big = actual2.getSize();
+						more = actual1.getSize();
 					
-					if(PApplet.dist(actual1.getX(),actual1.getY(),actual2.getX(),actual2.getY())< big) {
+					if(PApplet.dist(actual.getX(),actual.getY(),actual1.getX(),actual1.getY())< more) {
 						
 						combine = true;
 						
 					}
 						if(combine == true) {
 						
-							int size = actual1.getSize()+actual2.getSize();
+							int size = actual.getSize()+actual1.getSize();
 							
-							int X = (actual1.getX()+actual2.getX())/2;
-							int Y = (actual1.getY()+actual2.getY())/2;
+							int X = (actual.getX()+actual1.getX());
+							int Y = (actual.getY()+actual1.getY());
 							
 							int direct = 1;
 							
-							int numero = actual1.getNumero()+actual2.getNumero();
+							int value = actual.getValue()+actual1.getValue();
 							
 						
-						Triangle newTri = new Triangle (size, X, Y, direct, numero);
+						Triangle newTri = new Triangle (size, X, Y, direct, value);
 						
 						triangle.add(newTri);
+						square.remove(actual);
 						square.remove(actual1);
-						square.remove(actual2);
 						
 						
 						combine = false;
@@ -192,24 +188,24 @@ public class Logic {
 		}
 				
 		//fusion circle-circle	
-		for(int i=0;i < circle.size();i++) {
+		for(int i=0; i < circle.size();i++) {
 			
-					for(int j=1;j < circle.size();j++) {
+					for(int j=1; j < circle.size();j++) {
 						
-					Circle actual1 = circle.get(i);
-					Circle actual2 = circle.get(j);
+					Circle actual = circle.get(i);
+					Circle actual1 = circle.get(j);
 					
-					if(actual1.getSize()>actual2.getSize()) {
+					if(actual.getSize()>actual1.getSize()) {
 						
-						big = actual1.getSize();
+						more = actual.getSize();
 					
 					}
 					
-					if(actual1.getSize()<actual2.getSize()) {
+					if(actual.getSize()<actual1.getSize()) {
 						
-						big = actual2.getSize();
+						more = actual1.getSize();
 					
-					if(PApplet.dist(actual1.getX(),actual1.getY(),actual2.getX(),actual2.getY())< big) {
+					if(PApplet.dist(actual.getX(),actual.getY(),actual1.getX(),actual1.getY()) < more) {
 						
 						combine = true;
 						
@@ -217,20 +213,20 @@ public class Logic {
 					
 						if(combine == true) {
 							
-							int size = actual1.getSize()+actual2.getSize();
+							int size = actual.getSize()+actual1.getSize();
 							
-							int X = (actual1.getX()+actual2.getX())/2;
-							int Y = (actual1.getY()+actual2.getY())/2;
+							int X = (actual.getX()+actual1.getX());
+							int Y = (actual.getY()+actual1.getY());
 							
-							int numero = actual1.getNumero()+actual2.getNumero();
+							int value = actual.getValue()+actual1.getValue();
 							
-							int direct = 3;
+							int direct = 1;
 						
-						Triangle newTri = new Triangle (size, X, Y, direct, numero);
+						Triangle newTri = new Triangle (size, X, Y, direct, value);
 						
 						triangle.add(newTri);
+						circle.remove(actual);
 						circle.remove(actual1);
-						circle.remove(actual2);
 						
 						combine = false;
 						
@@ -242,15 +238,15 @@ public class Logic {
 		}
 					
 		//fusion square-circle
-		for(int i=0; i < square.size();i++ ) {
+		for(int i = 0; i < square.size();i++) {
 			
-			Square actual1 = square.get(i);
+			Square actual = square.get(i);
 			
 			for (int j = 0;j < circle.size();j++) {
 				
-			Circle actual2 = circle.get(j);
+			Circle actual1 = circle.get(j);
 			
-			if(PApplet.dist(actual1.getX(),actual1.getY(),actual2.getX(),actual2.getY())<actual2.getSize()) {
+			if(PApplet.dist(actual.getX(),actual.getY(),actual1.getX(),actual1.getY()) < actual1.getSize()) {
 				
 				combine = true;
 				
@@ -258,20 +254,21 @@ public class Logic {
 			
 				if(combine == true) {
 					
-					int size = actual1.getSize()+actual2.getSize();
+					int size = actual.getSize()+actual1.getSize();
 					
-					int X = (actual1.getX()+actual2.getX())/2;
-					int Y = (actual1.getY()+actual2.getY())/2;
+					int X = (actual.getX()+actual1.getX())/2;
+					int Y = (actual.getY()+actual1.getY())/2;
 					
-					int numero = actual1.getNumero()+actual2.getNumero();
+					int value = actual.getValue()+actual1.getValue();
 					
-					int direct = 5;
+					int direct = 1;
 				
-				Triangle newTri = new Triangle (size, X, Y, direct, numero);
+				Triangle newTri = new Triangle (size, X, Y, direct, value);
 				
 				triangle.add(newTri);
-				circle.remove(actual2);
-				square.remove(actual1);
+				square.remove(actual);
+				circle.remove(actual1);
+				
 				combine = false;
 				
 			}
@@ -316,10 +313,5 @@ public class Logic {
 	public void setLines(String[] lines) {
 		this.lines = lines;
 	}
-	public int getShapee() {
-		return shapee;
-	}
-	public void setShapee(int shapee) {
-		this.shapee = shapee;
-	}
+
 }

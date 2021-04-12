@@ -90,13 +90,14 @@ public abstract class Shapes {
 		this.direcY = direcY;
 	}
 
-	public int getNumero() {
+	public int getValue() {
 		return value;
 	}
 
-	public void setNumero(int numero) {
-		this.value = numero;
+	public void setValue(int value) {
+		this.value = value;
 	}
+
 	
 	
 

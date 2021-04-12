@@ -20,7 +20,6 @@ public class Controller {
 			
 		typeS = true;
 		
-		//logic.loadtext(app);
 		logic.createtext(app);
 		logic.createshapes();
 		
@@ -37,18 +36,17 @@ public class Controller {
 			
 			if (typeS==true) {
 				
-				Square actual = new Square ((int)(10 +(Math.random()*100)), mouseX, mouseY, 1, (int)(Math.random()*10));
+				Square actual = new Square ((int)(20+(Math.random()*100)), mouseX, mouseY, 1, (int)(Math.random()*10));
 				
 				logic.getSquare().add(actual);
 				
 				typeS = false;
 				
-				
 			}
 			
 		else {
 			
-			Circle actual = new Circle ((int)(10 +(Math.random()*100)), mouseX, mouseY, 1, (int)(Math.random()*10));
+			Circle actual = new Circle ((int)(20 +(Math.random()*100)), mouseX, mouseY, 1, (int)(Math.random()*10));
 			
 			logic.getCircle().add(actual);
 			
@@ -59,7 +57,7 @@ public class Controller {
 	
 	public void move (int mouseX, int mouseY) {
 		
-for(int i = 0;  i < logic.getSquare().size();i++) {
+		for(int i = 0;  i < logic.getSquare().size();i++) {
 			
 			Square actual = logic.getSquare().get(i);
 			
